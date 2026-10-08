@@ -1,0 +1,19 @@
+{
+  "name": "gemai",
+  "version": "0.1.0",
+  "description": "GemAI desktop app",
+  "main": "main.js",
+  "homepage": "https://example.com",
+  "author": { "name": "GemAI", "email": "support@example.com" },
+  "scripts": { "start": "electron .", "dist": "electron-builder --publish never" },
+  "build": {
+    "appId": "com.gemai.app",
+    "productName": "GemAI",
+    "files": ["main.js", "preload.js", "config.json", "renderer/**"],
+    "protocols": [{ "name": "GemAI", "schemes": ["gemai"] }],
+    "win": { "target": "nsis" },
+    "mac": { "target": "dmg", "category": "public.app-category.productivity" },
+    "linux": { "target": ["AppImage", "deb"], "category": "Utility" }
+  },
+  "devDependencies": { "electron": "^31.0.0", "electron-builder": "^24.13.3" }
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'">
+<title>GemAI</title>
+<style>
+:root{--bg:#120f1c;--fg:#f1ecff;--mut:#a79fc0;--card:#1c1730;--line:#32294d;--accent:#8b5cf6}
+:root[data-theme=light]{--bg:#f6f3ff;--fg:#1a1330;--mut:#5d5578;--card:#fff;--line:#ddd5f5}
+*{box-sizing:border-box}body{margin:0;height:100vh;display:flex;flex-direction:column;background:var(--bg);color:var(--fg);font-family:system-ui,sans-serif}
+header{display:flex;gap:10px;align-items:center;padding:10px 16px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+header b{font-size:18px;margin-right:auto}
+#plan{background:var(--accent);color:#fff;border-radius:8px;padding:3px 10px;font-size:12px;font-weight:700}
+#who{color:var(--mut);font-size:13px}
+button,select,input{background:var(--card);color:var(--fg);border:1px solid var(--line);border-radius:8px;padding:8px 12px;font:inherit}
+button.p{background:var(--accent);border-color:var(--accent);color:#fff;cursor:pointer}button:disabled{opacity:.5}
+#chat{flex:1;overflow:auto;padding:18px;display:flex;flex-direction:column;gap:10px}
+.m{max-width:75ch;padding:10px 14px;border-radius:12px;background:var(--card);border:1px solid var(--line);white-space:pre-wrap}
+.m.u{align-self:flex-end;background:var(--accent);border-color:var(--accent);color:#fff}
+footer{display:flex;gap:8px;padding:12px 16px;border-top:1px solid var(--line)}footer input{flex:1}
+details{padding:8px 16px;border-bottom:1px solid var(--line)}details div{display:flex;gap:10px;align-items:center;margin-top:8px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+<header><b>💎 GemAI</b><span id="plan">FREE</span><span id="who"></span>
+<button class="p" id="signin">Sign in with Google</button><button id="signout">Sign out</button></header>
+<details><summary>Settings and key</summary>
+<div><label>Accent <input type="color" id="acc" value="#8b5cf6"></label>
+<label>Theme <select id="th"><option value="dark">Dark</option><option value="light">Light</option></select></label>
+<label>Mode <select id="mode"><option value="chat">Chat</option><option value="code" id="codeopt">GemCode (paid plans)</option></select></label></div>
+<div id="redeem"><input id="key" placeholder="GEM-PRO-XXXX-XXXX-XXXX" size="26"><button class="p" id="redeemBtn">Redeem key</button></div>
+</details>
+<div id="chat"></div>
+<footer><input id="msg"><button class="p" id="send">Send</button></footer>
+<script src="app.js"></script>
+</body>
+</html>
